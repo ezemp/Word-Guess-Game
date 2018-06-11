@@ -1,22 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang = "en-US">
 <head>
     <title>League Of Legends Hangman</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="../assests/css/style.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="../assests/css/reset.css"/>
-    <script rel="text/javascript" src="../assests/javascript/game.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="assests/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assests/css/reset.css"/>
+    <script rel="text/javascript" href="assests/javascript/game.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js0"></script>
 </head>
 <body>
-    <div id = "topbar">Hangman</div>;
-    <div class ="spacer"></div>
-    <p id = "life"
-    <div id = "guessArea"></div>
-        <div class = "guessContainer"></div>
-    <p> Type letters on keyboard to input guess.</P>
-        <div class = "usedLetters"></div>
+    <div class = "container"
+    
+    <img id = "background" src = "../assests/images/legends.jpg" alt = "league"/>
+    <div clas ="col-md-6 gamePlay"/>
+    <div class="col-lg-4">
+        <img id =" victoryPic" src = "../assests/images/Victory.jpg" alt = "youWin"/>
+        <img id ="defeatPic" src = "../assests/images/Defeat.jpg" alt ="youLose"/>
+    </div>
+    </div>
+    </div> 
+
+    <div class = "row">
+        <div class "col-md-12" style = "float: center"/>
+            <h1>League Of Legends Hangman</h1>
+            <h2> Hit any key to begin</h2>
+            <h3 >Wins: </h3>
+            <h3 id = "winCount"></h3>
+            <h4>Losses: </h4>
+            <h4 id = "lossCount"></h4>
+            <h5 id = "blankSpace"></h5>
+            <h6> Reamaing Lives</h6>
+            <h6 id = lives </h6>
+            <h7 id ="prev-guess"></h7>
+
+        </div>
+    </div>
 </body>
 </html>

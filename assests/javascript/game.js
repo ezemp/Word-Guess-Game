@@ -1,36 +1,89 @@
-window.onLoad = function(){
-    var alphabet = ["a", "b", "c", "d","e", "f", "g", "h", "i", "j", "k", "l", "m", "n" ,"o", "p", "q", "r", "s","t", "u", "v", "w", "x", "y", "z"];
-    var word ;
-    var guess;
-    var guesses;
-    var lives;
-    var correct;
-    var space;
+var wins = 0
+var losses = 0
+var maxGuesses = 10
+var currentGuesses = [];
+var chosenWord
+var wordLength = []
+var hiddenWord = []
+var userInput;
 
-    document.onkeyup(userGuess)
+words = [
+"teemo", 
+"lissandra",
+"adc", 
+"summoner", 
+"swain",
+"darius",
+"noxus",
+"graves",
+"jungle",
+"dragon",
+"baron",
+"demacia",
+"garen",
 
-    lifeUpdate = function() {
-        showLives.innerHTML = "You have" + lives + "lives"
-        if(lives < 1){
-            showLives.alert("Game Over")
-        }
-        for (var i = 0; i < guesses.lenth; i++){
-            if(correct + space === guessess.length){
-                showLives.alert(" You're Winner")
-            }
-        }
+]
+function randomWord(){
+    var random = math.floor(math.random() * 13);
+    chosenWord = words[random];
+}
+
+function hideWord(){
+    wordLength = chosenWord.split("")
+
+};
+function hideWord2(){
+    for (var i = 0; i < wordLength.length; i++)
+    hiddenWord.push("_ ");
+}
+function resetGame(){
+    maxGuesses = 10
+    currentGuesses = [];
+    wordLength = []
+     hiddenWord = []
+    randomWord();
+    hideWord()
+    document.querySelector("#win").innerHTML = "";
+    document.querySelector("#lose").innerHTML = "";
+
+}
+
+function winCondition(){
+    if (wordLength === hiddenWord){
+        wins++;
+        document.querySelector("#winCount").innerHTML = wins;
+        resetGame()
     }
+}
+if (maxGuesses < 1){
+    losses++;
+    document.querySelector("#lossCount").innerHTML = losses;
+    resetGame()
+}
+else if (maxGesses <= 13){
+    maxGuesses--;
+    document.querySelector("#lives").innnerHTML = maxGuesses
 
 }
 
+function previousGuess(){
+    currentGuesses.push(userKeyPress + "");
+    document.querySelector("#prevGuess").innerHTML = previousGuesses;
 
-function userGuess(){
-    guessLetter(key.toLowerCase());
 
-   play = function(){
+}
+// CHECK HERE???
+function inputCheck(){
+    for (var i = 0; i < wordLength.length;i++)
+    userInput === wordLength[i] ? hiddenWord = userInput : document.querySelector("#blanks").innerHTML = hiddenWord
+}
+
+document.onKeyDown = function(event){
+    userInput = string.fromCharCode(event.which).toLowerCase;
     
-    word = ["teemo", "pyke", "summoner", "adc", "urf", "nidalee", "alistar"]
-    randomWord = word[math.floor(math.random() * word.length)];
-   }
-}
+    winCondition();
+    previousGuess();
+    inputCheck();
 
+
+}
